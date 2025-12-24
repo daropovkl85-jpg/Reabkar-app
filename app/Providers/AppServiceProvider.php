@@ -17,8 +17,11 @@ class AppServiceProvider extends ServiceProvider
     /**
      * Bootstrap any application services.
      */
-    public function boot(): void
-    {
-        //
+    public function boot()
+{
+    // បន្ថែមបន្ទាត់នេះ ដើម្បីដោះស្រាយបញ្ហាលើ Vercel
+    if (env('VIEW_COMPILED_PATH')) {
+        \Config::set('view.compiled', env('VIEW_COMPILED_PATH'));
     }
+}
 }
